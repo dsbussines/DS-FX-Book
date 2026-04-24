@@ -1,16 +1,28 @@
 # DS FX Book
 
-Full-stack trading journal web app with auth, SQLite persistence, analytics, backtesting, and MT5 webhook ingestion.
+Full-stack trading journal web app with auth, Postgres persistence, analytics, backtesting, and MT5 webhook ingestion.
 
 ## Run
 
-1. Copy `.env.example` to `.env` and set secrets.
+1. Copy `.env.example` to `.env` and set values.
 2. Install deps:
    - `npm install`
 3. Start server:
    - `npm start`
 4. Open:
    - `http://localhost:3000`
+
+## Railway Postgres Setup
+
+Set these variables in Railway service settings:
+
+- `DATABASE_URL` (from Railway Postgres service)
+- `DATABASE_SSL=enable` (set `disable` only for trusted local DBs without TLS)
+- `JWT_SECRET`
+- `MT5_WEBHOOK_SECRET`
+- `MT5_WEBHOOK_TOLERANCE_MS` (optional, defaults to 300000)
+
+The server automatically bootstraps schema on startup from `db/schema.sql`.
 
 ## MT5 Webhook Security
 

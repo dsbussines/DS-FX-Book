@@ -25,15 +25,17 @@ const normalizePayload = (payload) => {
   };
 };
 
-const processMt5Event = (db, payload) => {
+const processMt5Event = async (db, payload) => {
   const normalized = normalizePayload(payload);
   if (!normalized.account) {
     return { status: "ignored", message: "Missing account in payload.", normalized };
   }
 
-  const syncAccount = db
-    .prepare("SELECT user_id, account, platform FROM sync_accounts WHERE account = ? AND upper(platform) = ?")
-    .get(normalized.account, normalized.platform);
+  const syncAccountResult = await db.query(
+    "SELECT user_id, account, platform FROM sync_accounts WHERE account = $1 AND UPPER(platform) = $2 LIMIT 1",
+    [normalized.account, normalized.platform]
+  );
+  const syncAccount = syncAccountResult.rows[0];
   if (!syncAccount) {
     return {
       status: "ignored",
@@ -51,15 +53,18 @@ const processMt5Event = (db, payload) => {
     };
   }
 
-  const result = db
-    .prepare("INSERT INTO trades (user_id, symbol, direction, pnl, note, created_at) VALUES (?, ?, ?, ?, ?, ?)")
-    .run(syncAccount.user_id, normalized.symbol, normalized.direction, normalized.pnl, normalized.note, normalized.closedAt);
+  const result = await db.query(
+    `INSERT INTO trades (user_id, symbol, direction, pnl, note, created_at)
+     VALUES ($1, $2, $3, $4, $5, $6)
+     RETURNING id`,
+    [syncAccount.user_id, normalized.symbol, normalized.direction, normalized.pnl, normalized.note, normalized.closedAt]
+  );
   return {
     status: "processed",
     message: "Trade imported from MT5 webhook.",
     normalized,
     userId: syncAccount.user_id,
-    tradeId: result.lastInsertRowid
+    tradeId: result.rows[0]?.id || null
   };
 };
 
