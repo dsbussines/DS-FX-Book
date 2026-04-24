@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DS FX Book | <%= title %></title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <%- include("partials/sidebar") %>
+    <main class="main-area">
+      <%- include("partials/topbar", { title }) %>
+      <div class="kpi-row">
+        <article class="panel"><span>Total P&L</span><strong id="m-pnl">$0.00</strong></article>
+        <article class="panel"><span>Win Rate</span><strong id="m-winrate">0%</strong></article>
+        <article class="panel"><span>Profit Factor</span><strong id="m-pf">0.00</strong></article>
+        <article class="panel"><span>Total Trades</span><strong id="m-total">0</strong></article>
+      </div>
+      <div class="grid-two">
+        <article class="panel"><h3>Performance</h3><canvas id="equity-chart" height="180"></canvas></article>
+        <article class="panel"><h3>Monthly P&L Snapshot</h3><div class="placeholder">Calendar heatmap style widget</div></article>
+      </div>
+    </main>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>DS FX Book | <%= title %></title><link rel="stylesheet" href="/style.css" /></head>
+<body><div class="app-shell"><%- include("partials/sidebar") %><main class="main-area"><%- include("partials/topbar", { title }) %><div class="panel"><h3>Trade History</h3><form id="trade-form" class="form-grid"><input type="text" id="trade-symbol" placeholder="Symbol (XAUUSD)" required /><select id="trade-direction" required><option value="buy">Buy</option><option value="sell">Sell</option></select><input type="number" id="trade-pnl" step="0.01" placeholder="PnL" required /><input type="text" id="trade-note" placeholder="Note" /><button type="submit" class="btn">Add Trade</button></form><ul id="trade-list" class="entry-list"></ul></div></main></div><script src="/script.js"></script></body>
+</html>

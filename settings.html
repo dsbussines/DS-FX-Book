@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeFXBook | Settings</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <button type="button" class="sidebar-pin" aria-label="Collapse sidebar">‹</button>
+      <div class="brand">
+        <span class="brand-mark">TFB</span>
+        <div class="brand-text">
+          <strong>TradeFXBook</strong>
+          <span class="badge-beta">BETA</span>
+        </div>
+      </div>
+      <div class="user-card">
+        <div class="user-avatar" aria-hidden="true"></div>
+        <div class="user-info">
+          <strong id="sidebar-user-name">Guest</strong>
+          <span id="sidebar-user-email">Sign in to sync</span>
+        </div>
+        <span class="badge-free">FREE</span>
+      </div>
+      <nav class="side-nav" aria-label="Main">
+        <a class="side-link" href="index.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">dashboard</span><span class="side-link-row"><span>Dashboard</span></span></a>
+        <a class="side-link" href="trades.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">candlestick_chart</span><span class="side-link-row"><span>Trades</span></span></a>
+        <a class="side-link" href="journal.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">menu_book</span><span class="side-link-row"><span>Journal</span></span></a>
+        <div class="nav-block" id="nav-analysis">
+          <a class="side-link parent" href="analysis.html#trade"><span class="material-symbols-outlined side-ico" aria-hidden="true">analytics</span><span class="side-link-row"><span>Analysis</span></span></a>
+          <div class="side-subnav">
+            <a class="side-sublink" href="analysis.html#trade">Trade Analysis</a>
+            <a class="side-sublink" href="analysis.html#performance">Performance</a>
+          </div>
+        </div>
+        <a class="side-link" href="market.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">calendar_month</span><span class="side-link-row"><span>Market</span></span></a>
+        <a class="side-link" href="ai-report.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">smart_toy</span><span class="side-link-row"><span>AI Report</span><span class="tag-pro">PRO</span></span></a>
+        <a class="side-link" href="backtesting.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">science</span><span class="side-link-row"><span>Backtesting</span><span class="tag-elite">ELITE</span></span></a>
+        <div class="nav-block" id="nav-lounge">
+          <a class="side-link parent" href="lounge.html#lounges"><span class="material-symbols-outlined side-ico" aria-hidden="true">groups</span><span class="side-link-row"><span>Traders Lounge</span></span></a>
+          <div class="side-subnav">
+            <a class="side-sublink" href="lounge.html#lounges">Lounges</a>
+            <a class="side-sublink" href="lounge.html#leaderboard">Leaderboard</a>
+          </div>
+        </div>
+        <a class="side-link" href="tools.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">handyman</span><span class="side-link-row"><span>Tools</span></span></a>
+        <p class="side-nav-label">Support</p>
+        <a class="side-link" href="settings.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">settings</span><span class="side-link-row"><span>Settings</span></span></a>
+        <a class="side-link" href="support.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">help</span><span class="side-link-row"><span>Help &amp; Support</span></span></a>
+        <a class="side-link" href="subscription.html"><span class="material-symbols-outlined side-ico" aria-hidden="true">payments</span><span class="side-link-row"><span>Subscription</span></span></a>
+      </nav>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-intro">
+          <h1>Settings</h1>
+          <p class="topbar-date" id="app-date"></p>
+        </div>
+        <div class="topbar-search" role="search">
+          <span class="material-symbols-outlined" style="font-size: 20px; color: #737373" aria-hidden="true">search</span>
+          <input id="global-search" class="top-search" type="search" placeholder="Search pages, trades, or symbols..." autocomplete="off" />
+          <kbd class="top-search-kbd" aria-hidden="true"><span class="mod-key">Ctrl</span>+K</kbd>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="icon-circle" id="theme-toggle" aria-label="Toggle theme"><span class="material-symbols-outlined" style="font-size: 20px">dark_mode</span></button>
+          <button type="button" class="btn-add-square" id="quick-add" aria-label="Add trade" title="Add trade">+</button>
+          <span class="live-clock" id="header-clock" aria-live="polite"></span>
+          <button type="button" class="icon-circle" aria-label="Notifications"><span class="material-symbols-outlined" style="font-size: 20px">notifications</span></button>
+          <button type="button" class="icon-circle" aria-label="More options"><span class="material-symbols-outlined" style="font-size: 20px">more_horiz</span></button>
+          <span class="user-pill-avatar" aria-hidden="true"></span>
+        </div>
+      </header>
+      <div class="grid-two">
+        <article class="panel">
+          <h3>Account Access</h3>
+          <form id="register-form" class="form-grid">
+            <input type="text" id="register-name" placeholder="Name" required />
+            <input type="email" id="register-email" placeholder="Email" required />
+            <input type="password" id="register-password" placeholder="Password" required />
+            <button type="submit" class="btn">Create Account</button>
+          </form>
+          <form id="login-form" class="form-grid">
+            <input type="email" id="login-email" placeholder="Email" required />
+            <input type="password" id="login-password" placeholder="Password" required />
+            <button type="submit" class="btn">Login</button>
+          </form>
+          <div class="button-row">
+            <p id="auth-status" class="muted">Not logged in.</p>
+            <button id="logout-btn" class="btn alt" type="button">Logout</button>
+          </div>
+        </article>
+        <article class="panel">
+          <h3>MT4/MT5 Connection</h3>
+          <form id="sync-form" class="form-grid">
+            <input type="text" id="sync-broker" placeholder="Broker" required />
+            <select id="sync-platform"><option value="MT4">MT4</option><option value="MT5">MT5</option></select>
+            <input type="text" id="sync-account" placeholder="Account Number" required />
+            <button type="submit" class="btn">Connect</button>
+          </form>
+          <p id="sync-status" class="muted">No account connected.</p>
+          <button id="refresh-mt5-events" class="btn alt" type="button">Refresh MT5 Events</button>
+          <ul id="mt5-events" class="entry-list"></ul>
+        </article>
+      </div>
+    </main>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

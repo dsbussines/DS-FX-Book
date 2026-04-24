@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>DS FX Book | <%= title %></title><link rel="stylesheet" href="/style.css" /></head>
+<body><div class="app-shell"><%- include("partials/sidebar") %><main class="main-area"><%- include("partials/topbar", { title }) %><div class="grid-two"><article class="panel"><h3>Community Feed</h3><form id="community-form" class="form-grid"><input type="text" id="community-text" placeholder="Share your idea..." required /><button type="submit" class="btn">Post</button></form><ul id="community-feed" class="entry-list"></ul></article><article class="panel"><h3>Leaderboard</h3><div class="placeholder">Top traders board layout.</div></article></div></main></div><script src="/script.js"></script></body>
+</html>
